@@ -1,28 +1,31 @@
 package com.example.android4
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.android4.adapters.CountryAdapter
-import com.example.android4.data.CountryItem
-import com.example.android4.ui.MainFragment
+import com.example.android4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private var binding: ActivityMainBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        APP_ACTIVITY=this
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
     }
-
 
     override fun onResume() {
         super.onResume()
-        replaceFragment(MainFragment(),false)
+
+        binding?.btnSend?.setOnClickListener {
+            startActivity(Intent(this,SecondActivity::class.java))
+        }
+
+        binding?.cardView1?.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=tj.humo.transfer")))
+        }
     }
+
+
 }

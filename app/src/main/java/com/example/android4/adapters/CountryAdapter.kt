@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android4.APP_ACTIVITY
 import com.example.android4.R
 import com.example.android4.data.CountryItem
 
@@ -62,7 +61,7 @@ class CountryAdapter(
                 holder.tvText.text = list_country[position].name_country
                 holder.itemView.setOnClickListener {
                     Toast.makeText(
-                        APP_ACTIVITY,
+                        holder.itemView.context,
                         list_country[position].name_country,
                         Toast.LENGTH_SHORT
                     ).show()
@@ -74,7 +73,7 @@ class CountryAdapter(
                 holder.tvText.text = list_country[position].name_country
                 holder.itemView.setOnClickListener {
                     Toast.makeText(
-                        APP_ACTIVITY,
+                        holder.itemView.context,
                         list_country[position].name_country,
                         Toast.LENGTH_SHORT
                     ).show()
