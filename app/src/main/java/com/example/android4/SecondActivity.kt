@@ -1,5 +1,6 @@
 package com.example.android4
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +31,13 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        binding?.back?.setOnClickListener {
+            this.onBackPressed()
+        }
     }
+
+
 
     private fun filterList(query: String?) {
 
@@ -67,7 +74,7 @@ class SecondActivity : AppCompatActivity() {
             }
 
         })
-    
+
     }
     private fun initRcView(){
         rcView=binding?.rcView
